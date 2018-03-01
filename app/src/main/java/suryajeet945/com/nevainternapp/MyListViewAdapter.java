@@ -1,6 +1,8 @@
 package suryajeet945.com.nevainternapp;
 
 import android.content.Context;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +50,12 @@ public class MyListViewAdapter extends BaseAdapter {
         TextView textViewName=(TextView)row.findViewById(R.id.textViewName);
         TextView textViewSkills=(TextView)row.findViewById(R.id.textViewSkills);
 
-        imageView.setImageBitmap(list.get(position).getImage());
+        RoundedBitmapDrawable roundedBitmapDrawable= RoundedBitmapDrawableFactory.create(context.getResources(),list.get(position).getImage());
+        roundedBitmapDrawable.setCircular(true);
+        imageView.setImageDrawable(roundedBitmapDrawable);
+
+
+//        imageView.setImageBitmap(list.get(position).getImage());
         textViewName.setText(list.get(position).getName());
         textViewSkills.setText(list.get(position).getSkills());
 
